@@ -152,7 +152,7 @@ public class EmployeeM2OResponse implements Serializable {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("EmployeeResponse [empNo=");
+		builder.append("EmployeeM2OResponse [empNo=");
 		builder.append(empNo);
 		builder.append(", ename=");
 		builder.append(ename);

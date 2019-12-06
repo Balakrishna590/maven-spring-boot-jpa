@@ -1,70 +1,48 @@
 /**
  * 
  */
-package com.springboot.jpa.one2many.entites;
+package com.springboot.jpa.empdept.response.models;
 
 import java.io.Serializable;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 /**
  * @author broutu
  *
  */
-@Entity
-@Table(name = "EMP")
-//@NamedQuery(name = "all-employees", query = "SELECT EE FROM EmployeeEntity EE")
-public class EmployeeO2MEntity implements Serializable {
+public class EmployeeResponse implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue
-	@Column(name = "EMPNO")
-	private Integer empNo;
+	private int empNo;
 
-	@Column(name = "ENAME")
 	private String ename;
 
-	@Column(name = "JOB")
 	private String job;
 
-	@Column(name = "MGR")
 	private Integer mgr;
 
-	@Column(name = "HIREDATE")
 	private String hireDate;
 
-	@Column(name = "SAL")
 	private Integer salary;
 
-	@Column(name = "COMM")
 	private Integer commession;
 
-	@ManyToOne
-	@JoinColumn(name = "DEPTNO", referencedColumnName = "DEPTNO")
-	private DepartmentO2MEntity departmentO2MEntity;
+	private Integer deptNo;
 
 	/**
 	 * @return the empNo
 	 */
-	public Integer getEmpNo() {
+	public int getEmpNo() {
 		return empNo;
 	}
 
 	/**
 	 * @param empNo the empNo to set
 	 */
-	public void setEmpNo(Integer empNo) {
+	public void setEmpNo(int empNo) {
 		this.empNo = empNo;
 	}
 
@@ -152,20 +130,6 @@ public class EmployeeO2MEntity implements Serializable {
 		this.commession = commession;
 	}
 
-	/**
-	 * @return the departmentO2MEntity
-	 */
-	public DepartmentO2MEntity getDepartmentO2MEntity() {
-		return departmentO2MEntity;
-	}
-
-	/**
-	 * @param departmentO2MEntity the departmentO2MEntity to set
-	 */
-	public void setDepartmentO2MEntity(DepartmentO2MEntity departmentO2MEntity) {
-		this.departmentO2MEntity = departmentO2MEntity;
-	}
-
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -174,7 +138,7 @@ public class EmployeeO2MEntity implements Serializable {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("EmployeeO2MEntity [empNo=");
+		builder.append("EmployeeResponse [empNo=");
 		builder.append(empNo);
 		builder.append(", ename=");
 		builder.append(ename);
@@ -188,8 +152,8 @@ public class EmployeeO2MEntity implements Serializable {
 		builder.append(salary);
 		builder.append(", commession=");
 		builder.append(commession);
-		builder.append(", departmentO2MEntity=");
-		builder.append(departmentO2MEntity);
+		builder.append(", deptNo=");
+		builder.append(deptNo);
 		builder.append("]");
 		return builder.toString();
 	}

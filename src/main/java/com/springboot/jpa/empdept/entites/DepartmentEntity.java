@@ -1,18 +1,14 @@
 /**
  * 
  */
-package com.springboot.jpa.one2many.entites;
+package com.springboot.jpa.empdept.entites;
 
 import java.io.Serializable;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -21,7 +17,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "DEPT")
-public class DepartmentO2MEntity implements Serializable {
+public class DepartmentEntity implements Serializable {
 
 	/**
 	 * 
@@ -31,7 +27,7 @@ public class DepartmentO2MEntity implements Serializable {
 	@Id
 	@GeneratedValue
 	@Column(name = "DEPTNO")
-	private Integer deptNo;
+	private int deptNo;
 
 	@Column(name = "DNAME")
 	private String dname;
@@ -39,20 +35,17 @@ public class DepartmentO2MEntity implements Serializable {
 	@Column(name = "LOC")
 	private String location;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "departmentO2MEntity", cascade = CascadeType.ALL)
-	private List<EmployeeO2MEntity> employeeO2MEntites;
-
 	/**
 	 * @return the deptNo
 	 */
-	public Integer getDeptNo() {
+	public int getDeptNo() {
 		return deptNo;
 	}
 
 	/**
 	 * @param deptNo the deptNo to set
 	 */
-	public void setDeptNo(Integer deptNo) {
+	public void setDeptNo(int deptNo) {
 		this.deptNo = deptNo;
 	}
 
@@ -84,20 +77,6 @@ public class DepartmentO2MEntity implements Serializable {
 		this.location = location;
 	}
 
-	/**
-	 * @return the employeeO2MEntites
-	 */
-	public List<EmployeeO2MEntity> getEmployeeO2MEntites() {
-		return employeeO2MEntites;
-	}
-
-	/**
-	 * @param employeeO2MEntites the employeeO2MEntites to set
-	 */
-	public void setEmployeeO2MEntites(List<EmployeeO2MEntity> employeeO2MEntites) {
-		this.employeeO2MEntites = employeeO2MEntites;
-	}
-
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -106,14 +85,12 @@ public class DepartmentO2MEntity implements Serializable {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("DepartmentO2MEntity [deptNo=");
+		builder.append("DepartmentEntity [deptNo=");
 		builder.append(deptNo);
 		builder.append(", dname=");
 		builder.append(dname);
 		builder.append(", location=");
 		builder.append(location);
-		builder.append(", employeeO2MEntites=");
-		builder.append(employeeO2MEntites);
 		builder.append("]");
 		return builder.toString();
 	}

@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.springboot.jpa.many2one.response.models.DepartmentM2OResponse;
+import com.springboot.jpa.empdept.response.models.DepartmentResponse;
 import com.springboot.jpa.many2one.response.models.EmployeeM2OResponse;
 import com.springboot.jpa.one2many.response.models.DepartmentO2MResponse;
 import com.springboot.jpa.service.DepartmentService;
@@ -29,10 +29,10 @@ public class EmployeeDeptController {
 	@Autowired
 	private DepartmentService departmentService;
 
-	/*
-	 * @RequestMapping("/depts") public List<DepartmentM2OResponse> getAllDepts() {
-	 * return departmentService.getAllDepts(); }
-	 */
+	@RequestMapping("/depts")
+	public List<DepartmentResponse> getAllDepts() {
+		return departmentService.getAllDepts();
+	}
 
 	@RequestMapping("/employees-with-depts-M2O")
 	public List<EmployeeM2OResponse> findAllEmployeesWithDeptsUsingM2O() {

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.springboot.jpa.many2one.response.models;
+package com.springboot.jpa.empdept.response.models;
 
 import java.io.Serializable;
 
@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @author broutu
  *
  */
-public class DepartmentM2OResponse implements Serializable {
+public class DepartmentResponse implements Serializable {
 
 	/**
 	 * 
@@ -72,7 +72,7 @@ public class DepartmentM2OResponse implements Serializable {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("DepartmentM2OResponse [deptNo=");
+		builder.append("DepartmentResponse [deptNo=");
 		builder.append(deptNo);
 		builder.append(", dname=");
 		builder.append(dname);

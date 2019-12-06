@@ -85,7 +85,7 @@ public class DepartmentM2OEntity implements Serializable {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("DepartmentEntity [deptNo=");
+		builder.append("DepartmentM2OEntity [deptNo=");
 		builder.append(deptNo);
 		builder.append(", dname=");
 		builder.append(dname);

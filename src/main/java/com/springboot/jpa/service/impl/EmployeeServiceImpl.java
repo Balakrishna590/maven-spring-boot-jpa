@@ -11,6 +11,7 @@ import com.springboot.jpa.many2one.entites.EmployeeM2OEntity;
 import com.springboot.jpa.many2one.response.models.DepartmentM2OResponse;
 import com.springboot.jpa.many2one.response.models.EmployeeM2OResponse;
 import com.springboot.jpa.repositories.EmployeeRepository;
+import com.springboot.jpa.repositories.Many2OneRepository;
 import com.springboot.jpa.service.EmployeeService;
 
 @Service
@@ -19,9 +20,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Autowired
 	private EmployeeRepository employeeRepository;
 
+	@Autowired
+	private Many2OneRepository many2OneRepository;
+
 	@Override
 	public List<EmployeeM2OResponse> findAllEmployeesWithDeptsUsingM2O() {
-		List<EmployeeM2OEntity> employeeEntites = employeeRepository.findAllEmployeesWithDeptsUsingM2O();
+		List<EmployeeM2OEntity> employeeEntites = many2OneRepository.findAllEmployeesWithDeptsUsingM2O();
 		return convertEEToER(employeeEntites);
 	}
 
@@ -32,11 +36,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 			employeeResponse.setEmpNo(employeeEntity.getEmpNo());
 			employeeResponse.setEname(employeeEntity.getEname());
 			employeeResponse.setJob(employeeEntity.getJob());
-			Integer mgrNo = employeeEntity.getMgr()==null? null:employeeEntity.getMgr();
+			Integer mgrNo = employeeEntity.getMgr() == null ? null : employeeEntity.getMgr();
 			employeeResponse.setMgr(mgrNo);
 			employeeResponse.setHireDate(employeeEntity.getHireDate());
 			employeeResponse.setSalary(employeeEntity.getSalary());
-			Integer commession = employeeEntity.getCommession()==null? null:employeeEntity.getCommession();
+			Integer commession = employeeEntity.getCommession() == null ? null : employeeEntity.getCommession();
 			employeeResponse.setCommession(commession);
 			employeeResponse.setDepartmentResponse(convertDEToDR(employeeEntity.getDepartmentM2OEntity()));
 			listOfEmployees.add(employeeResponse);

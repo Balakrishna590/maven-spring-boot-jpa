@@ -175,7 +175,7 @@ public class EmployeeM2OEntity implements Serializable {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("EmployeeEntity [empNo=");
+		builder.append("EmployeeM2OEntity [empNo=");
 		builder.append(empNo);
 		builder.append(", ename=");
 		builder.append(ename);
