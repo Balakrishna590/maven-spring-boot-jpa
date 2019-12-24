@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.springboot.jpa.one2many.entites;
+package com.springboot.jpa.one2manyuni.entites;
 
 import java.io.Serializable;
 import java.util.List;
@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -21,7 +22,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "DEPT")
-public class DepartmentO2MEntity implements Serializable {
+public class DepartmentO2MUniEntity implements Serializable {
 
 	/**
 	 * 
@@ -39,8 +40,9 @@ public class DepartmentO2MEntity implements Serializable {
 	@Column(name = "LOC")
 	private String location;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "departmentO2MEntity", cascade = CascadeType.ALL)
-	private List<EmployeeO2MEntity> employeeO2MEntites;
+	@OneToMany(fetch = FetchType.LAZY,  targetEntity=EmployeeO2MUniEntity.class,cascade = CascadeType.ALL)
+	@JoinColumn(name = "DEPTNO", referencedColumnName="DEPTNO")
+	private List<EmployeeO2MUniEntity> employeeO2MUniEntites;
 
 	/**
 	 * @return the deptNo
@@ -85,17 +87,17 @@ public class DepartmentO2MEntity implements Serializable {
 	}
 
 	/**
-	 * @return the employeeO2MEntites
+	 * @return the employeeO2MUniEntites
 	 */
-	public List<EmployeeO2MEntity> getEmployeeO2MEntites() {
-		return employeeO2MEntites;
+	public List<EmployeeO2MUniEntity> getEmployeeO2MUniEntites() {
+		return employeeO2MUniEntites;
 	}
 
 	/**
-	 * @param employeeO2MEntites the employeeO2MEntites to set
+	 * @param employeeO2MUniEntites the employeeO2MUniEntites to set
 	 */
-	public void setEmployeeO2MEntites(List<EmployeeO2MEntity> employeeO2MEntites) {
-		this.employeeO2MEntites = employeeO2MEntites;
+	public void setEmployeeO2MUniEntites(List<EmployeeO2MUniEntity> employeeO2MUniEntites) {
+		this.employeeO2MUniEntites = employeeO2MUniEntites;
 	}
 
 	/*
@@ -106,14 +108,14 @@ public class DepartmentO2MEntity implements Serializable {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("DepartmentO2MEntity [deptNo=");
+		builder.append("DepartmentO2MBiEntity [deptNo=");
 		builder.append(deptNo);
 		builder.append(", dname=");
 		builder.append(dname);
 		builder.append(", location=");
 		builder.append(location);
-		builder.append(", employeeO2MEntites=");
-		builder.append(employeeO2MEntites);
+		builder.append(", employeeO2MUniEntites=");
+		builder.append(employeeO2MUniEntites);
 		builder.append("]");
 		return builder.toString();
 	}

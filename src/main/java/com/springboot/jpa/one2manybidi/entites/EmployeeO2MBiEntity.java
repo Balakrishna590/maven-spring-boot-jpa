@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.springboot.jpa.one2many.entites;
+package com.springboot.jpa.one2manybidi.entites;
 
 import java.io.Serializable;
 
@@ -20,7 +20,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "EMP")
 //@NamedQuery(name = "all-employees", query = "SELECT EE FROM EmployeeEntity EE")
-public class EmployeeO2MEntity implements Serializable {
+public class EmployeeO2MBiEntity implements Serializable {
 
 	/**
 	 * 
@@ -52,7 +52,7 @@ public class EmployeeO2MEntity implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name = "DEPTNO", referencedColumnName = "DEPTNO")
-	private DepartmentO2MEntity departmentO2MEntity;
+	private DepartmentO2MBiEntity departmentO2MBiEntity;
 
 	/**
 	 * @return the empNo
@@ -153,17 +153,17 @@ public class EmployeeO2MEntity implements Serializable {
 	}
 
 	/**
-	 * @return the departmentO2MEntity
+	 * @return the departmentO2MBiEntity
 	 */
-	public DepartmentO2MEntity getDepartmentO2MEntity() {
-		return departmentO2MEntity;
+	public DepartmentO2MBiEntity getDepartmentO2MBiEntity() {
+		return departmentO2MBiEntity;
 	}
 
 	/**
-	 * @param departmentO2MEntity the departmentO2MEntity to set
+	 * @param departmentO2MBiEntity the departmentO2MBiEntity to set
 	 */
-	public void setDepartmentO2MEntity(DepartmentO2MEntity departmentO2MEntity) {
-		this.departmentO2MEntity = departmentO2MEntity;
+	public void setDepartmentO2MBiEntity(DepartmentO2MBiEntity departmentO2MBiEntity) {
+		this.departmentO2MBiEntity = departmentO2MBiEntity;
 	}
 
 	/*
@@ -188,8 +188,8 @@ public class EmployeeO2MEntity implements Serializable {
 		builder.append(salary);
 		builder.append(", commession=");
 		builder.append(commession);
-		builder.append(", departmentO2MEntity=");
-		builder.append(departmentO2MEntity);
+		builder.append(", departmentO2MBiEntity=");
+		builder.append(departmentO2MBiEntity);
 		builder.append("]");
 		return builder.toString();
 	}

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.springboot.jpa.one2many.response.models;
+package com.springboot.jpa.one2manybi.response.models;
 
 import java.io.Serializable;
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.List;
  * @author broutu
  *
  */
-public class DepartmentO2MResponse implements Serializable {
+public class DepartmentO2MBiResponse implements Serializable {
 
 	/**
 	 * 
@@ -23,7 +23,7 @@ public class DepartmentO2MResponse implements Serializable {
 
 	private String location;
 
-	private List<EmployeeO2MResponse> employeeO2MResponse;
+	private List<EmployeeO2MBiResponse> employeeO2MBiResponse;
 
 	/**
 	 * @return the deptNo
@@ -68,17 +68,17 @@ public class DepartmentO2MResponse implements Serializable {
 	}
 
 	/**
-	 * @return the employeeO2MResponse
+	 * @return the employeeO2MBiResponse
 	 */
-	public List<EmployeeO2MResponse> getEmployeeO2MResponse() {
-		return employeeO2MResponse;
+	public List<EmployeeO2MBiResponse> getEmployeeO2MBiResponse() {
+		return employeeO2MBiResponse;
 	}
 
 	/**
-	 * @param employeeO2MResponse the employeeO2MResponse to set
+	 * @param employeeO2MBiResponse the employeeO2MBiResponse to set
 	 */
-	public void setEmployeeO2MResponse(List<EmployeeO2MResponse> employeeO2MResponse) {
-		this.employeeO2MResponse = employeeO2MResponse;
+	public void setEmployeeO2MBiResponse(List<EmployeeO2MBiResponse> employeeO2MBiResponse) {
+		this.employeeO2MBiResponse = employeeO2MBiResponse;
 	}
 
 	/*
@@ -89,14 +89,14 @@ public class DepartmentO2MResponse implements Serializable {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("DepartmentO2MResponse [deptNo=");
+		builder.append("DepartmentO2MBiResponse [deptNo=");
 		builder.append(deptNo);
 		builder.append(", dname=");
 		builder.append(dname);
 		builder.append(", location=");
 		builder.append(location);
-		builder.append(", employeeO2MResponse=");
-		builder.append(employeeO2MResponse);
+		builder.append(", employeeO2MBiResponse=");
+		builder.append(employeeO2MBiResponse);
 		builder.append("]");
 		return builder.toString();
 	}

@@ -1,48 +1,67 @@
 /**
  * 
  */
-package com.springboot.jpa.one2many.response.models;
+package com.springboot.jpa.one2manyuni.entites;
 
 import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * @author broutu
  *
  */
-public class EmployeeO2MResponse implements Serializable {
+@Entity
+@Table(name = "EMP")
+//@NamedQuery(name = "all-employees", query = "SELECT EE FROM EmployeeEntity EE")
+public class EmployeeO2MUniEntity implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private int empNo;
+	@Id
+	@GeneratedValue
+	@Column(name = "EMPNO")
+	private Integer empNo;
 
+	@Column(name = "ENAME")
 	private String ename;
 
+	@Column(name = "JOB")
 	private String job;
 
+	@Column(name = "MGR")
 	private Integer mgr;
 
+	@Column(name = "HIREDATE")
 	private String hireDate;
 
+	@Column(name = "SAL")
 	private Integer salary;
 
+	@Column(name = "COMM")
 	private Integer commession;
 
-	private DepartmentO2MResponse departmentO2MResponse;
-
+	/*
+	 * @Column(name = "DEPTNO") private Integer deptNo;
+	 */
 	/**
 	 * @return the empNo
 	 */
-	public int getEmpNo() {
+	public Integer getEmpNo() {
 		return empNo;
 	}
 
 	/**
 	 * @param empNo the empNo to set
 	 */
-	public void setEmpNo(int empNo) {
+	public void setEmpNo(Integer empNo) {
 		this.empNo = empNo;
 	}
 
@@ -130,19 +149,18 @@ public class EmployeeO2MResponse implements Serializable {
 		this.commession = commession;
 	}
 
-	/**
-	 * @return the departmentO2MResponse
-	 */
-	public DepartmentO2MResponse getDepartmentO2MResponse() {
-		return departmentO2MResponse;
-	}
+	/*	*//**
+			 * @return the deptNo
+			 */
 
-	/**
-	 * @param departmentO2MResponse the departmentO2MResponse to set
-	 */
-	public void setDepartmentO2MResponse(DepartmentO2MResponse departmentO2MResponse) {
-		this.departmentO2MResponse = departmentO2MResponse;
-	}
+	/*
+	 * public Integer getDeptNo() { return deptNo; }
+	 * 
+	 *//**
+		 * @param deptNo the deptNo to set
+		 *//*
+			 * public void setDeptNo(Integer deptNo) { this.deptNo = deptNo; }
+			 */
 
 	/*
 	 * (non-Javadoc)
@@ -152,7 +170,7 @@ public class EmployeeO2MResponse implements Serializable {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("EmployeeO2MResponse [empNo=");
+		builder.append("EmployeeO2MUniEntity [empNo=");
 		builder.append(empNo);
 		builder.append(", ename=");
 		builder.append(ename);
@@ -166,8 +184,9 @@ public class EmployeeO2MResponse implements Serializable {
 		builder.append(salary);
 		builder.append(", commession=");
 		builder.append(commession);
-		builder.append(", departmentO2MResponse=");
-		builder.append(departmentO2MResponse);
+		/*
+		 * builder.append(", deptNo="); builder.append(deptNo);
+		 */
 		builder.append("]");
 		return builder.toString();
 	}
